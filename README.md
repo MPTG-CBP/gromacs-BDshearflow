@@ -30,3 +30,8 @@ tpxio.cpp
 
 so they can be read from the mdp file
 
+
+## Installation:  
+
+Standard installation procedure but with g++-10 compiler:  
+'cmake ... options... -DCMAKE_CXX_COMPILER=g++-10'
