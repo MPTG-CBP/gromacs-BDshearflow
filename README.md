@@ -1,6 +1,6 @@
 # gromacs-BDshearflow
 
-the BD euler equation has an extra term to account for the shear flow.
+GROMACS-modified version. The BD euler equation has an extra term to account for the shear flow.
 
 x(t+dt)=x(t)+gamma*(z(t) - z0)*dt + inv_fric*f(t)*dt + random_noise
 
