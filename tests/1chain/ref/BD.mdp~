@@ -1,0 +1,38 @@
+integrator              = bd
+dt = 1
+nsteps = 100000
+nstlog                  = 100
+nstxout-compressed = 1000
+nstvout                 = 0
+nstfout                 = 0
+nstxout                 = 0
+
+;
+cutoff-scheme           = Verlet
+coulombtype             = Cut-off
+rcoulomb                = 2.8
+vdwtype                 = Cut-off
+vdw-modifier            = Potential-shift-Verlet
+rvdw                    = 2.8
+;
+tcoupl                  = Berendsen
+ref_t                   = 300
+tau_t                   = 1
+tc-grps			= System
+;
+pcoupl                  = no
+;
+constraints             = none
+;
+nstcomm                 = 100
+comm_mode               = linear
+comm_grps               = System
+pbc 			= no 
+
+
+
+
+; Langevin dynamics
+bd-fric = 18939.4
+ld-seed = 987
+

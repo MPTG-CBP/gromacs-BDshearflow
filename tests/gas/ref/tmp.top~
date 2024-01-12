@@ -1,0 +1,13 @@
+#include "./gas.itp"
+
+[moleculetype]
+; molname 	nrexcl
+gas		0 
+
+[ atoms ]
+; id 	type 	resnr 	residu 	atom 	cgnr 	charge
+    1      B1       1   BEA2  	   B1 	    1 	0
+[ system ]
+POLYMER MIXTURE 
+[ molecules ]
+polymer 1

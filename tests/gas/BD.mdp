@@ -1,0 +1,40 @@
+integrator              = bd
+dt = 1
+nsteps = 10000
+nstlog                  = 100
+nstxout-compressed = 100
+nstvout                 = 0
+nstfout                 = 0
+nstxout                 = 0
+
+;
+cutoff-scheme           = Verlet
+coulombtype             = Cut-off
+rcoulomb                = 10.0
+vdwtype                 = Cut-off
+vdw-modifier            = Potential-shift-Verlet
+rvdw                    = 10.0
+;
+tcoupl                  = Berendsen
+ref_t                   = 300
+tau_t                   = 1
+tc-grps			= System
+;
+pcoupl                  = no
+;
+constraints             = none
+;
+nstcomm                 = 100
+comm_mode               = linear
+comm_grps               = System
+pbc 			= xyz
+
+
+
+
+; Langevin dynamics
+bd-fric = 18939.4
+bd-gamma = 1e-4 ; shear flow strength (1/ps)
+bd-z0 = 0 ; z coordinate for which flow velocity is 0
+ld-seed = 987
+

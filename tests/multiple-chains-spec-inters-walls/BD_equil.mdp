@@ -1,0 +1,48 @@
+integrator              = bd
+dt = 1
+nsteps = 100000
+nstlog                  = 100
+nstxout-compressed = 100
+nstvout                 = 0
+nstfout                 = 0
+nstxout                 = 0
+
+;
+cutoff-scheme           = Verlet
+coulombtype             = Cut-off
+rcoulomb                = 10.0
+vdwtype                 = Cut-off
+vdw-modifier            = Potential-shift-Verlet
+rvdw                    = 10.0
+;
+tcoupl                  = no
+ref_t                   = 300
+tau_t                   = 1
+tc-grps			= System
+;
+pcoupl                  = no
+;
+constraints             = none
+;
+nstcomm                 = 100
+comm_mode               = linear
+comm_grps               = System
+pbc 			= xy
+nwall                   = 2
+wall-atomtype           = BW BW
+wall-density            = 10 10 ; beads/nm^2
+wall-r-linpot           = 0.5  ; extra repeling force in case beads traspas the wall (it should seldom happen as it is below the LJ sigma value)
+
+
+
+
+
+; Langevin dynamics
+bd-fric = 18939.4
+bd-gamma = 0.0 ; shear flow
+bd-z0 = 0.0 ; shear flow v0 position
+ld-seed = 987
+
+; deformation (useful if the chains initially accommodate outside the box)
+deform =  
+

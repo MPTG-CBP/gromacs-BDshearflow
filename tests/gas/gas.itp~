@@ -1,0 +1,17 @@
+; gas particles
+
+[ defaults ]
+; nbfunc comb-rule gen-pairs fudgeLJ fudgeQQ
+  1      2         no 
+
+
+[ atomtypes ]
+; name mass charge ptype c6 c12
+B1  20000.0 0.000 A 0.0 0.0  ; mass of a 2.5 nm protein domain (it is only important for MD and ignored for BD)
+
+[ nonbond_params ]
+; Lennard jones between beads
+; i j	funda sigma(nm) epsilon (kmol/mol)
+  B1 	B1 	1 	3.2	0.25 ;
+  
+

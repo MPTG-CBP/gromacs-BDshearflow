@@ -1,0 +1,62 @@
+; POLYMER FORCE-FIELD WITH BEADS FOR SELF-INTERACTIONS AND ADHESION TO A SURFACE
+
+
+[ defaults ]
+; nbfunc comb-rule gen-pairs fudgeLJ fudgeQQ
+  1      2         no 
+
+; four bead types:
+; B1: polymer bead: non-specific interactions.
+; B2: polymer bead: for specific polymer-polymer interactions (e.g. A1-A2). 
+; B3: polymer bead: for specific polymer-wall interaction (if wanted)
+; BW: wall bead
+; Any new specific interaction can be included by adding new beads
+
+
+
+[ atomtypes ]
+; name mass charge ptype c6 c12
+B1  20000.0 0.000 A 0.0 0.0  
+B2  20000.0 0.000 A 0.0 0.0
+B3  20000.0 0.000 A 0.0 0.0  
+BW  20000.0 0.000 A 0.0 0.0
+; mass here is ~of A1 domain but it does not matter for BD sims.
+
+
+; LJ: non-specific interactions 0.1 kBT so it is mainly the repelling part. 
+
+[ nonbond_params ]
+; Lennard jones between beads
+; i j	funda sigma(nm) epsilon (kmol/mol)
+  B1 	B1 	1 	3.2		0.25 ; non-spec non-spec
+  B1 	B2 	1 	3.2		0.25 ; non-spec spec
+  B1 	B3 	1 	3.2		0.25 ; non-spec spec-wall
+  B1 	BW 	1 	3.2		0.25 ; non-spec wall
+
+  B2 	B2 	1 	3.2		2.5 ;  spec	spec (here epsilon controls the strength of polymer-polymer specific interactions)
+  B2 	B3 	1 	3.2		0.25 ; spec     spec-wall
+  B2 	BW 	1 	3.2		0.25 ; spec     wall
+
+  B3 	B3 	1 	3.2		0.25 ; spec-wall     spec-wall
+  B3 	BW 	1 	3.2		0.25 ; spec-wall     wall (here adhesion to the wall can be controlled)
+
+  BW 	BW 	1 	3.2		0.25 ; wall     wall 
+
+  
+
+
+
+
+; fene bonds between polymer beads
+[ bondtypes ]
+;      i        j  func           bm           kb
+      B1       B1     7           25          100
+      B1       B2     7           25          100
+      B1       B3     7           25          100
+      B2       B2     7           25          100
+      B2       B3     7           25          100
+      B3       B3     7           25          100
+
+
+
+

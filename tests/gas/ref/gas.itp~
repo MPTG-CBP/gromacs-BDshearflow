@@ -1,0 +1,32 @@
+; POLYMER FORCE-FIELD WITH TWO TYPE OF BEADS INTERACTING SPECIFICALLY OR NOT
+
+[ defaults ]
+; nbfunc comb-rule gen-pairs fudgeLJ fudgeQQ
+  1      2         no 
+
+; two bead types (specifically interacting or not) 
+
+
+[ atomtypes ]
+; name mass charge ptype c6 c12
+B1  20000.0 0.000 A 0.0 0.0  ; mass of a 2.5 nm protein domain (it is only important for MD and ignored for BD)
+B2  20000.0 0.000 A 0.0 0.0
+
+[ nonbond_params ]
+; Lennard jones between beads
+; i j	funda sigma(nm) epsilon (kmol/mol)
+
+  B1 	B1 	1 	2.5		2.5 ;
+  B1 	B2 	1 	2.5		2.5 ;
+  B2 	B2 	1 	2.5		2.5 ; 
+
+; fene bonds between beads
+[ bondtypes ]
+;      i        j  func           bm           kb
+      B1       B1     7           25          100
+      B1       B2     7           25          100
+      B2       B2     7           25          100
+
+
+
+
